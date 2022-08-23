@@ -70,12 +70,25 @@ console.log(notInFirstArray(arr1, arr2));
 
 // Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 
-let rString = function reversedString(e) {
-  return e.split("").reverse().join("");
+// let rString = function reversedString(e) {
+//   return e.split("").reverse().join("");
+// };
+
+// console.log(rString("hello"));
+
+const reversedString = (string) => {
+  const newArray = string.split("");
+  const reverseArray = [];
+  newArray.reduce((acc, ele) => {
+    acc = ele;
+    reverseArray.unshift(acc);
+  }, []);
+  string = reverseArray.join("");
+  return string;
 };
 
-console.log(rString("hello"));
-
+let string = "Hello";
+console.log(reversedString(string));
 //--------------------------------------------------
 // Q5:
 // Write a function named isNum that takes in a string or number of any length.
